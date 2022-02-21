@@ -1,0 +1,95 @@
+﻿<Window x:Class="fractal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:fractal"
+        xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+        mc:Ignorable="d"
+        Title="Фракталы" Height="550" Width="800" Name="window" SizeChanged="SizeChangedWindow" MinHeight="550" MinWidth="800" >
+    <Grid>
+        <TextBlock Text="Выберите тип фрактала:" Height="30" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40,45,0,0"/>
+        <ComboBox Name="comboBox" Margin="40,70,545,0" Height="30" Width="180" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="ComboBoxSelectionChanged" DropDownClosed="ComboBoxDropDownClosed">
+            <ComboBoxItem Name="Tree">
+                <TextBlock>Фрактальное дерево</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="Koсh">
+                <TextBlock>Кривая Коха</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="Carpet">
+                <TextBlock>Ковер Серпинского</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="Triangle">
+                <TextBlock>Треугольник Серпинского</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="Kanter">
+                <TextBlock>Множество Кантера</TextBlock>
+            </ComboBoxItem>
+        </ComboBox>
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Name="depthRec" Text="Глубина рекурсии" Margin="40,120,640,270" Height="30" Width="100" Visibility="Hidden">
+            <TextBlock.ToolTip>
+                <ToolTip Width="500" Height="150">
+                    <StackPanel>
+                        <TextBlock Text="Глубина рекурсии для дерева может быть в диапозоне [0,9]"/>
+                        <TextBlock Text="Глубина рекурсии для кривой Коха может быть в диапозоне [0,4]"/>
+                        <TextBlock Text="Глубина рекурсии для ковра Серпинского может быть в диапозоне [0,4]"/>
+                        <TextBlock Text="Глубина рекурсии для треугольника Серпинского может быть в диапозоне [0,6]"/>
+                        <TextBlock Text="Глубина рекурсии для множества Кантера может быть в диапозоне [0,9]"/>
+                    </StackPanel>
+                </ToolTip>
+            </TextBlock.ToolTip>
+        </TextBlock>
+        <TextBox LostFocus="LostFocusDepth" VerticalAlignment="Top" HorizontalAlignment="Left"  Name="depthRecTextBoxTree" Text="0" Height="20" Width="100" Margin="40,150,640,240" Visibility="Hidden" TextChanged="TextChangedDepthTree" />
+        <TextBox LostFocus="LostFocusDepth" VerticalAlignment="Top" HorizontalAlignment="Left" Name="depthRecTextBoxKoch" Text="0" Height="20" Width="100" Margin="40,150,640,240" Visibility="Hidden" TextChanged="TextChangedDepthKoch" />
+        <TextBox LostFocus="LostFocusDepth" VerticalAlignment="Top" HorizontalAlignment="Left" Name="depthRecTextBoxCarpet" Text="0" Height="20" Width="100" Margin="40,150,640,240" Visibility="Hidden" TextChanged="TextChangedDepthCarpet" />
+        <TextBox LostFocus="LostFocusDepth" VerticalAlignment="Top" HorizontalAlignment="Left" Name="depthRecTextBoxTriangle" Text="0" Height="20" Width="100" Margin="40,150,640,240" Visibility="Hidden" TextChanged="TextChangedDepthTriangle" />
+        <TextBox LostFocus="LostFocusDepth" VerticalAlignment="Top" HorizontalAlignment="Left" Name="depthRecTextBoxKanter" Text="0" Height="20" Width="100" Margin="40,150,640,240" Visibility="Hidden" TextChanged="TextChangedDepthKanter" />
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Name="coefficient" Text="Коэффицент отношения отрезков" Height="30" Width="200" Margin="40,180,550,210" Visibility="Hidden" >
+            <TextBlock.ToolTip>
+                <ToolTip Width="400" Height="50">
+                    <StackPanel>
+                        <TextBlock Text="Коэффецент отношения длин отрезков может быть в диапозоне (0,1]"/>
+                        <TextBlock Text="Максимальное количество знаков после запятой - 1."/>
+                    </StackPanel>
+                </ToolTip>
+            </TextBlock.ToolTip>
+        </TextBlock>
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Name="distance" Text="Расстояние между отрезками" Height="30" Width="200" Margin="40,180,550,210" Visibility="Hidden" >
+            <TextBlock.ToolTip>
+                <ToolTip Width="400" Height="50">
+                    <StackPanel>
+                        <TextBlock Text="Расстояние между отрезками может быть целым числом в диапозоне [1,10]"/>
+                    </StackPanel>
+                </ToolTip>
+            </TextBlock.ToolTip>
+        </TextBlock>
+        <TextBox LostFocus="LostFocusCoefficent" VerticalAlignment="Top" HorizontalAlignment="Left" Name="coefficientTextBox" Text="0,8" Height="20" Width="100" Margin="40,210,640,180" Visibility="Hidden"/>
+        <TextBox LostFocus="LostFocusDistance" VerticalAlignment="Top" HorizontalAlignment="Left" Name="distanceTextBox" Text="1" Height="20" Width="100" Margin="40,210,640,180" Visibility="Hidden"/>
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Name="angle1" Text="Угол наклона первого отрезка" Height="30" Width="200" Margin="40,240,550,150" Visibility="Hidden" >
+            <TextBlock.ToolTip>
+                <ToolTip Width="500" Height="50">
+                    <StackPanel>
+                        <TextBlock Text="Угол наклона - это угол между родительской веткой и правым отростком."/>
+                        <TextBlock Text="Угол наклона первого отрезка может быть в диапозоне [90,180]"/>
+                    </StackPanel>
+                </ToolTip>
+            </TextBlock.ToolTip>
+        </TextBlock>
+        <TextBox LostFocus="LostFocusAngle1" VerticalAlignment="Top" HorizontalAlignment="Left" Name="angle1TextBox" Text="135" Height="20" Width="100" Margin="40,270,640,110" Visibility="Hidden"/>
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Name="angle2" Text="Угол наклона второго отрезка" Height="30" Width="200" Margin="40,300,550,90" Visibility="Hidden">
+            <TextBlock.ToolTip>
+                <ToolTip Width="500" Height="50">
+                    <StackPanel>
+                        <TextBlock Text="Угол наклона - это угол между родительской веткой и левым отростком."/>
+                        <TextBlock Text="Угол наклона первого отрезка может быть в диапозоне (180,270]"/>
+                    </StackPanel>
+                </ToolTip>
+            </TextBlock.ToolTip>
+        </TextBlock>
+        <TextBox LostFocus="LostFocusAngle2" VerticalAlignment="Top" HorizontalAlignment="Left" Name="angle2TextBox" Text="225" Height="20" Width="100" Margin="40,330,640,30" Visibility="Hidden"/>
+        <Canvas VerticalAlignment="Top" HorizontalAlignment="Right" Name ="canvas" Height="540" Width="400" Background="Lavender" Margin="390,0,0,0"/>
+        <Button Name="buttonSave" Width="150" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background ="LightSkyBlue"  Margin="0,0,400,0" Click="ButtonSaveClick" Visibility="Hidden">
+            <TextBlock Text="Сохранить фрактал."/>
+        </Button>
+    </Grid>
+</Window>
