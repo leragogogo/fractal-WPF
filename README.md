@@ -2,6 +2,9 @@
 
 Это приложение для отрисовки 5 видов фракталов:
 1) Фрактальное дерево
+
+![Фрактальное дерево](https://github.com/leragogogo/fractal-WPF/raw/main/C:\Users\user\Desktop\hse\peergrade\fractal\tree.PNG)
+
 2) Кривая Коха
 3) Ковер Серпинского
 4) Треугольник Серпинского
