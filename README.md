@@ -1,29 +1,29 @@
 # fractal-WPF
 
-Это приложение для отрисовки 5 видов фракталов:
-1) Фрактальное дерево
+This is a desktop application for drawing 5 types of fractals:
+1) Fractal(Pythagoras) tree
 
 ![Фрактальное дерево](https://github.com/leragogogo/image/raw/main/tree.PNG)
 
-2) Кривая Коха
+2) Koch snowflake
 
 ![Кривая Коха](https://github.com/leragogogo/image/raw/main/koch.PNG)
 
-3) Ковер Серпинского
+3) Sierpinski carpet
 
 ![Ковер Серпинского](https://github.com/leragogogo/image/raw/main/carpet.PNG)
 
-4) Треугольник Серпинского
+4) Sierpinski triangle
 
 ![Треугольник Серпинского](https://github.com/leragogogo/image/raw/main/triangle.PNG)
 
-5) Множество Кантера
+5) Cantor set
 
 ![Множество Кантера](https://github.com/leragogogo/image/raw/main/kanter.PNG)
 
 
-Чтобы фракталы отрисовались, нужно ввести глубину рекурсии для всех видов фракталов. 
+To draw fractals, you need to enter the recursion depth for all types of fractals.
 
-Для фрактального дерева дополнительно нужно ввести углы наклона отрезков, для множества Кантора расстояние между отрезками. 
+For a fractal tree, you additionally need to enter the angles of inclination of the segments, for the Cantor set, the distance between the segments. 
 
-Существует возможность сохранить фрактал в виде картинки.
+It is possible to save the fractal as an image.
